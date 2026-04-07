@@ -1,0 +1,659 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VdsSampleUtilities</name>
+    </assembly>
+    <members>
+        <member name="T:VdsSampleUtilities.EventHandlers">
+            <summary>
+            Event Handler Extension for VDS-PDMC-Sample Configuration environment
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.EventHandlers.OnLoad">
+            <summary>
+            Events registration
+            </summary>
+        </member>
+        <member name="T:VdsSampleUtilities.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:VdsSampleUtilities.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:VdsSampleUtilities.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:VdsSampleUtilities.Properties.Resources.Open_Settings_16_Dark">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:VdsSampleUtilities.Properties.Resources.Open_Settings_16_Light">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:VdsSampleUtilities.Properties.Resources.Vault_Pro">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:VdsSampleUtilities.Settings">
+            <summary>
+            Registered configuration points
+            </summary>
+        </member>
+        <member name="F:VdsSampleUtilities.Settings.mSettingName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.Settings.Save">
+            <summary>
+            Write configuration points to external file.
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.Settings.Load">
+            <summary>
+            Read configuration points from external file.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:VdsSampleUtilities.Util">
+            <summary>
+            SDK sample utilities
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.Util.DoAction(System.Action)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+        </member>
+        <member name="M:VdsSampleUtilities.Util.GetAssemblyPath">
+            <summary>
+            Get the parent application's installation path
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:VdsSampleUtilities.VdsSampleAdminForm">
+            <summary>
+            User interface for administrators; supports themes
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.VdsSampleAdminForm.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:VdsSampleUtilities.VdsSampleAdminForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.VdsSampleAdminForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:VdsSampleUtilities.VdsSampleAdminForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:VdsSampleUtilities.VdsSampleProgressForm">
+            <summary>
+            Themed dialog for progress feedback
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.VdsSampleProgressForm.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.VdsSampleProgressForm.ShowProgress(System.String)">
+            <summary>
+            Create a new asynchron dialog with marquee style progress bar.
+            Call Thread.Abort() to terminated the dialog.
+            </summary>
+            <returns>Thread</returns>
+        </member>
+        <member name="F:VdsSampleUtilities.VdsSampleProgressForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.VdsSampleProgressForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:VdsSampleUtilities.VdsSampleProgressForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:VdsSampleUtilities.TextEncoding">
+            <summary>
+            Provides System.Text.Encoding functionality not available in VDS PowerShell runtime.
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.TextEncoding.UTF8GetBytes(System.String)">
+            <summary>
+            Converts a string to a UTF8-encoded byte array.
+            </summary>
+            <param name="value">The string to encode.</param>
+            <returns>A UTF8-encoded byte array.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when input string is null or empty.</exception>
+        </member>
+        <member name="M:VdsSampleUtilities.TextEncoding.ASCIIGetBytes(System.String)">
+            <summary>
+            Converts a string to an ASCII-encoded byte array.
+            </summary>
+            <param name="value">The string to encode.</param>
+            <returns>An ASCII-encoded byte array.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when input string is null or empty.</exception>
+        </member>
+        <member name="M:VdsSampleUtilities.TextEncoding.UTF8GetString(System.Byte[])">
+            <summary>
+            Converts a UTF8-encoded byte array to a string.
+            </summary>
+            <param name="bytes">The byte array to decode.</param>
+            <returns>The decoded string.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when byte array is null or empty.</exception>
+        </member>
+        <member name="M:VdsSampleUtilities.TextEncoding.ASCIIGetString(System.Byte[])">
+            <summary>
+            Converts an ASCII-encoded byte array to a string.
+            </summary>
+            <param name="bytes">The byte array to decode.</param>
+            <returns>The decoded string.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when byte array is null or empty.</exception>
+        </member>
+        <member name="M:VdsSampleUtilities.TextEncoding.GetUTF8Bytes(System.String)">
+            <summary>
+            Converts a string to a UTF8-encoded byte array (static method).
+            </summary>
+            <param name="value">The string to encode.</param>
+            <returns>A UTF8-encoded byte array.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when input string is null or empty.</exception>
+        </member>
+        <member name="M:VdsSampleUtilities.TextEncoding.GetASCIIBytes(System.String)">
+            <summary>
+            Converts a string to an ASCII-encoded byte array (static method).
+            </summary>
+            <param name="value">The string to encode.</param>
+            <returns>An ASCII-encoded byte array.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when input string is null or empty.</exception>
+        </member>
+        <member name="M:VdsSampleUtilities.TextEncoding.GetUTF8String(System.Byte[])">
+            <summary>
+            Converts a UTF8-encoded byte array to a string (static method).
+            </summary>
+            <param name="bytes">The byte array to decode.</param>
+            <returns>The decoded string.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when byte array is null or empty.</exception>
+        </member>
+        <member name="M:VdsSampleUtilities.TextEncoding.GetASCIIString(System.Byte[])">
+            <summary>
+            Converts an ASCII-encoded byte array to a string (static method).
+            </summary>
+            <param name="bytes">The byte array to decode.</param>
+            <returns>The decoded string.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when byte array is null or empty.</exception>
+        </member>
+        <member name="T:VdsSampleUtilities.Convert">
+            <summary>
+            Provides methods for converting between different data types.
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.Convert.ToInt32(System.String)">
+            <summary>
+            Converts a string to a 32-bit signed integer.
+            </summary>
+            <param name="value">A string containing a number to convert.</param>
+            <returns>A 32-bit signed integer equivalent to the value in <paramref name="value"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
+            <exception cref="T:System.FormatException">Thrown when <paramref name="value"/> is not in a correct format.</exception>
+            <exception cref="T:System.OverflowException">Thrown when <paramref name="value"/> represents a number less than <see cref="F:System.Int32.MinValue"/> or greater than <see cref="F:System.Int32.MaxValue"/>.</exception>
+        </member>
+        <member name="M:VdsSampleUtilities.Convert.Int32ToString(System.Int32)">
+            <summary>
+            Converts a 32-bit signed integer to its equivalent string representation.
+            </summary>
+            <param name="value">The 32-bit signed integer to convert.</param>
+            <returns>The string representation of the value of this instance.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.Convert.ToInt64(System.String)">
+            <summary>
+            Converts a string to a 64-bit signed integer.
+            </summary>
+            <param name="value">A string containing a number to convert.</param>
+            <returns>A 64-bit signed integer equivalent to the value in <paramref name="value"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
+            <exception cref="T:System.FormatException">Thrown when <paramref name="value"/> is not in a correct format.</exception>
+            <exception cref="T:System.OverflowException">Thrown when <paramref name="value"/> represents a number less than <see cref="F:System.Int64.MinValue"/> or greater than <see cref="F:System.Int64.MaxValue"/>.</exception>
+        </member>
+        <member name="M:VdsSampleUtilities.Convert.Int64ToString(System.Int64)">
+            <summary>
+            Converts a 64-bit signed integer to its equivalent string representation.
+            </summary>
+            <param name="value">The 64-bit signed integer to convert.</param>
+            <returns>The string representation of the value of this instance.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.Convert.ToDouble(System.String)">
+            <summary>
+            Converts a string to a double-precision floating-point number.
+            </summary>
+            <param name="value">A string containing a number to convert.</param>
+            <returns>A double-precision floating-point number equivalent to the value in <paramref name="value"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
+            <exception cref="T:System.FormatException">Thrown when <paramref name="value"/> is not a number in a valid format.</exception>
+            <exception cref="T:System.OverflowException">Thrown when <paramref name="value"/> represents a number less than <see cref="F:System.Double.MinValue"/> or greater than <see cref="F:System.Double.MaxValue"/>.</exception>
+        </member>
+        <member name="M:VdsSampleUtilities.Convert.DoubleToString(System.Double)">
+            <summary>
+            Converts a double-precision floating-point number to its equivalent string representation.
+            </summary>
+            <param name="value">The double-precision floating-point number to convert.</param>
+            <returns>The string representation of the value of this instance.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.Convert.ToBase64String(System.Byte[])">
+            <summary>
+            Converts a byte array to its equivalent string representation encoded with base-64 digits.
+            </summary>
+            <param name="byteArray">An array of 8-bit unsigned integers.</param>
+            <returns>The string representation in base 64 of the elements in <paramref name="byteArray"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="byteArray"/> is null.</exception>
+        </member>
+        <member name="M:VdsSampleUtilities.Convert.FromBase64String(System.String)">
+            <summary>
+            Converts a base-64 encoded string to an equivalent byte array.
+            </summary>
+            <param name="s">The string to convert.</param>
+            <returns>An array of 8-bit unsigned integers equivalent to <paramref name="s"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="s"/> is null.</exception>
+            <exception cref="T:System.FormatException">Thrown when the length of <paramref name="s"/>, ignoring white-space characters, is not zero or a multiple of 4, or the format of <paramref name="s"/> is invalid.</exception>
+        </member>
+        <member name="M:VdsSampleUtilities.Convert.StringToInt32(System.String)">
+            <summary>
+            Converts a string to a 32-bit signed integer (alternative naming for PowerShell compatibility).
+            </summary>
+            <param name="value">A string containing a number to convert.</param>
+            <returns>A 32-bit signed integer equivalent to the value in <paramref name="value"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
+            <exception cref="T:System.FormatException">Thrown when <paramref name="value"/> is not in a correct format.</exception>
+            <exception cref="T:System.OverflowException">Thrown when <paramref name="value"/> represents a number less than <see cref="F:System.Int32.MinValue"/> or greater than <see cref="F:System.Int32.MaxValue"/>.</exception>
+        </member>
+        <member name="M:VdsSampleUtilities.Convert.Int32ToStringStatic(System.Int32)">
+            <summary>
+            Converts a 32-bit signed integer to its equivalent string representation (static version).
+            </summary>
+            <param name="value">The 32-bit signed integer to convert.</param>
+            <returns>The string representation of the value of this instance.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.Convert.StringToInt64(System.String)">
+            <summary>
+            Converts a string to a 64-bit signed integer (alternative naming for PowerShell compatibility).
+            </summary>
+            <param name="value">A string containing a number to convert.</param>
+            <returns>A 64-bit signed integer equivalent to the value in <paramref name="value"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
+            <exception cref="T:System.FormatException">Thrown when <paramref name="value"/> is not in a correct format.</exception>
+            <exception cref="T:System.OverflowException">Thrown when <paramref name="value"/> represents a number less than <see cref="F:System.Int64.MinValue"/> or greater than <see cref="F:System.Int64.MaxValue"/>.</exception>
+        </member>
+        <member name="M:VdsSampleUtilities.Convert.Int64ToStringStatic(System.Int64)">
+            <summary>
+            Converts a 64-bit signed integer to its equivalent string representation (static version).
+            </summary>
+            <param name="value">The 64-bit signed integer to convert.</param>
+            <returns>The string representation of the value of this instance.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.Convert.StringToDouble(System.String)">
+            <summary>
+            Converts a string to a double-precision floating-point number (alternative naming for PowerShell compatibility).
+            </summary>
+            <param name="value">A string containing a number to convert.</param>
+            <returns>A double-precision floating-point number equivalent to the value in <paramref name="value"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="value"/> is null.</exception>
+            <exception cref="T:System.FormatException">Thrown when <paramref name="value"/> is not a number in a valid format.</exception>
+            <exception cref="T:System.OverflowException">Thrown when <paramref name="value"/> represents a number less than <see cref="F:System.Double.MinValue"/> or greater than <see cref="F:System.Double.MaxValue"/>.</exception>
+        </member>
+        <member name="M:VdsSampleUtilities.Convert.DoubleToStringStatic(System.Double)">
+            <summary>
+            Converts a double-precision floating-point number to its equivalent string representation (static version).
+            </summary>
+            <param name="value">The double-precision floating-point number to convert.</param>
+            <returns>The string representation of the value of this instance.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.Convert.BytesToBase64(System.Byte[])">
+            <summary>
+            Converts a byte array to its equivalent string representation encoded with base-64 digits (alternative naming for PowerShell compatibility).
+            </summary>
+            <param name="byteArray">An array of 8-bit unsigned integers.</param>
+            <returns>The string representation in base 64 of the elements in <paramref name="byteArray"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="byteArray"/> is null.</exception>
+        </member>
+        <member name="M:VdsSampleUtilities.Convert.Base64ToBytes(System.String)">
+            <summary>
+            Converts a base-64 encoded string to an equivalent byte array (alternative naming for PowerShell compatibility).
+            </summary>
+            <param name="s">The string to convert.</param>
+            <returns>An array of 8-bit unsigned integers equivalent to <paramref name="s"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="s"/> is null.</exception>
+            <exception cref="T:System.FormatException">Thrown when the length of <paramref name="s"/>, ignoring white-space characters, is not zero or a multiple of 4, or the format of <paramref name="s"/> is invalid.</exception>
+        </member>
+        <member name="T:VdsSampleUtilities.TreeNode">
+            <summary>
+            Represents a node in the tree structure of file dependencies.
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.TreeNode.#ctor(Autodesk.Connectivity.WebServices.File,Autodesk.DataManagement.Client.Framework.Vault.Currency.Connections.Connection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VdsSampleUtilities.TreeNode"/> class.
+            </summary>
+            <param name="file">The file to be represented by this node.</param>
+            <param name="connection">The connection to the Vault.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when file or connection is null.</exception>
+        </member>
+        <member name="P:VdsSampleUtilities.TreeNode.Name">
+            <summary>
+            Gets the name of the file represented by this node.
+            </summary>
+        </member>
+        <member name="P:VdsSampleUtilities.TreeNode.Children">
+            <summary>
+            Retrieves the children of the current file (files dependent on this file).
+            </summary>
+        </member>
+        <member name="P:VdsSampleUtilities.TreeNode.Parents">
+            <summary>
+            Retrieves the parents of the current file (files that depend on this file).
+            </summary>
+        </member>
+        <member name="P:VdsSampleUtilities.TreeNode.Icon">
+            <summary>
+            Gets the file type's icon as a bitmap image.
+            </summary>
+        </member>
+        <member name="T:VdsSampleUtilities.VltHelpers">
+            <summary>
+            Provides helper methods for extending VDS Vault scripts.
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.GetImageResourceAsByteArray(System.String)">
+            <summary>
+            Gets an image resource as a byte array in PNG format
+            </summary>
+            <param name="resourceName">The name of the image resource (e.g., "VirtualComp_32")</param>
+            <returns>Byte array containing the image in PNG format, or an empty array if the resource cannot be loaded</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.GetImageResourceAsByteArray(System.String,System.Boolean)">
+            <summary>
+            Gets an image from a local file as a byte array in PNG format
+            </summary>
+            <param name="filePath">The full path and filename of the image file</param>
+            <param name="isFilePath">Must be set to true to indicate this is a file path (used to differentiate overloads)</param>
+            <returns>Byte array containing the image in PNG format, or an empty array if the file cannot be loaded</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.UserCredentials1(System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates user credentials for connecting to a Vault server.
+            </summary>
+            <param name="server">The IP address or DNS name of the ADMS server.</param>
+            <param name="vault">The name of the Vault to connect to.</param>
+            <param name="user">The username for authentication.</param>
+            <param name="pw">The password for authentication.</param>
+            <returns>A <see cref="T:Autodesk.Connectivity.WebServicesTools.UserPasswordCredentials"/> object for the specified server and Vault.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.UserCredentials2(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            UserCredentials1 and UserCredentials2 differentiate overloads as powershell can't handle
+            UserCredentials2 returns readonly loginuser object
+            </summary>
+            <param name="server">IP Address or DNS Name of ADMS Server</param>
+            <param name="vault">Name of vault to connect to</param>
+            <param name="user">User name</param>
+            <param name="pw">Password</param>
+            <param name="rw">Set to "True" to allow Read/Write access</param>
+            <returns></returns>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.UpdateFolderProp2(Autodesk.Connectivity.WebServicesTools.WebServiceManager,System.Int64[],Autodesk.Connectivity.WebServices.PropInstParamArray[])">
+            <summary>
+            Deprecated - no longer required, as the overload is removed in 2017 API
+            </summary>
+            <param name="svc"></param>
+            <param name="FldIds"></param>
+            <param name="m_PropArray"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.mGetLinkedChildren1(Autodesk.DataManagement.Client.Framework.Vault.Currency.Connections.Connection,System.Int64,System.String,System.String)">
+            <summary>
+            LinkManager.GetLinkedChildren has an override list; the input is of type IEntity. 
+            This wrapper allows to input commonly known object types, like Ids and entity names instead.
+            </summary>
+            <param name="con">The utility dll is not connected to Vault; 
+            we need to leverage the established connection to call LinkManager methods</param>
+            <param name="mId">The parent entity's id to get linked children of</param>
+            <param name="mClsId">The parent entity's class name; allowed values are FILE FLDR and CUSTENT. 
+            CO and ITEM cannot have linked children, as they use specific links to related child objects.</param>
+            <param name="mFilter">Limit the search on links to a particular class; providing an empty value "" will result in a search on all types</param>
+            <returns>List of entity Ids</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.GetLinkedChildren2(Autodesk.DataManagement.Client.Framework.Vault.Currency.Connections.Connection,System.Int64[],System.String[])">
+            <summary>
+            Evaluation of overload 2; see mGetLinkedchildren1 for detailed description
+            </summary>
+            <param name="con"></param>
+            <param name="mParEntIds"></param>
+            <param name="mClsIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.mUpdateFileProperties(Autodesk.DataManagement.Client.Framework.Vault.Currency.Connections.Connection,Autodesk.Connectivity.WebServices.File,System.Collections.Generic.Dictionary{Autodesk.Connectivity.WebServices.PropDef,System.Object})">
+            <summary>
+            Update file properties
+            </summary>
+            <param name="conn"></param>
+            <param name="mFile"></param>
+            <param name="mPropDictonary"></param>
+            <returns>True if updated successfully</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.mGetFileByFullFileName(Autodesk.DataManagement.Client.Framework.Vault.Currency.Connections.Connection,System.String,System.Boolean)">
+            <summary>
+            Downloads Vault file using full file path, e.g. "$/Designs/Base.ipt". Returns full file name in local working folder (download enforces override, if local file exists),
+            returns "FileNotFound if file does not exist at indicated location.
+            Preset Options: Download Children (recursively) = Enabled, Enforce Overwrite = True
+            </summary>
+            <param name="conn">Current Vault Connection</param>
+            <param name="VaultFullFileName">FullFilePath</param>
+            <param name="CheckOut">Optional. File downloaded does NOT check-out as default.</param>
+            <returns>Local path/filename or error statement "FileNotFound"</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.GetFileProps(Autodesk.DataManagement.Client.Framework.Vault.Currency.Connections.Connection,System.Int64,System.Collections.Generic.Dictionary{System.String,System.String}@)">
+            <summary>
+            Get the file iteration's properties with Display Names and Values
+            </summary>
+            <param name="conn">Current Vault connection ($VaultConnection)</param>
+            <param name="FileId">File iteration Id</param>
+            <param name="FileProperties">Name-Value map of Display Name and Values. All Values return as text.</param>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.GetFolderProps(Autodesk.DataManagement.Client.Framework.Vault.Currency.Connections.Connection,System.Int64,System.Collections.Generic.Dictionary{System.String,System.String}@)">
+            <summary>
+            Get Folder properties with Display Names and Values
+            </summary>
+            <param name="conn">Current Vault connection ($VaultConnection)</param>
+            <param name="FolderId">Folder Id</param>
+            <param name="FolderProperties">Name-Value map of Display Name and Values. All Values return as text.</param>        
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.GetItemProps(Autodesk.DataManagement.Client.Framework.Vault.Currency.Connections.Connection,System.Int64,System.Collections.Generic.Dictionary{System.String,System.String}@)">
+            <summary>
+            Get Item properties with Display Names and Values
+            </summary>
+            <param name="conn">Current Vault connection ($VaultConnection)</param>
+            <param name="ItemId">Item Id</param>
+            <param name="ItemProperties">Name-Value map of Display Name and Values. All Values return as text.</param>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.GetCustentProps(Autodesk.DataManagement.Client.Framework.Vault.Currency.Connections.Connection,System.Int64,System.Collections.Generic.Dictionary{System.String,System.String}@)">
+            <summary>
+            Get Custom Object properties with Display Names and Values
+            </summary>
+            <param name="conn">Current Vault connection ($VaultConnection)</param>
+            <param name="CustentId">Custom Object Id</param>
+            <param name="CustentProperties">Name-Value map of Display Name and Values. All Values return as text.</param>
+        </member>
+        <member name="T:VdsSampleUtilities.VltHelpers.BomRow">
+            <summary>
+            Represents a single row in a Bill of Materials (BOM)
+            </summary>
+        </member>
+        <member name="T:VdsSampleUtilities.VltHelpers.Bom">
+            <summary>
+            Represents a Bill of Materials containing multiple BOM items
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.GetModelStates(Autodesk.DataManagement.Client.Framework.Vault.Currency.Connections.Connection,System.Int64)">
+            <summary>
+            Get model states or configurations from a file's BOM structure
+            </summary>
+            <param name="conn">Vault connection</param>
+            <param name="fileId">File ID to get model states from</param>
+            <returns>Dictionary of model state names and their IDs</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.GetFileBOM(Autodesk.DataManagement.Client.Framework.Vault.Currency.Connections.Connection,System.Int64,System.Int64,System.Boolean@,System.String@)">
+            <summary>
+            Read the structured BOM (Inventor BOM: Structured = Enabled)
+            </summary>
+            <param name="conn">Vault connection</param>
+            <param name="fileId">File ID</param>
+            <param name="bomCompId">BOM Component ID (use root component or model state ID)</param>
+            <param name="returnMessage"></param>
+            <returns>List of BOM items</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.ReadModelBom(Autodesk.DataManagement.Client.Framework.Vault.Currency.Connections.Connection,Autodesk.Connectivity.WebServices.BOM,System.Collections.Generic.List{VdsSampleUtilities.VltHelpers.BomRow})">
+            <summary>
+            Read the model BOM
+            </summary>
+            <param name="conn">Vault connection</param>
+            <param name="parentBom">BOM object retrieved from DocumentService.GetBOMByFileId</param>
+            <param name="bomItems">List to populate with BOM items</param>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.ReadStructuredBom(Autodesk.DataManagement.Client.Framework.Vault.Currency.Connections.Connection,Autodesk.Connectivity.WebServices.BOM,Autodesk.Connectivity.WebServices.BOMSchm,System.Collections.Generic.List{VdsSampleUtilities.VltHelpers.BomRow})">
+            <summary>
+            Process a BOM level (recursively if needed in future)
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.VltHelpers.ShouldProcessNestedBOM(Autodesk.Connectivity.WebServices.BOMComp,Autodesk.Connectivity.WebServices.BOM)">
+            <summary>
+            Determines if a nested BOM should be processed
+            </summary>
+        </member>
+        <member name="T:VdsSampleUtilities.InvHelpers">
+            <summary>
+            Provides helper methods for interacting with hosting Inventor session.
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.InvHelpers.GetMainViewModelPropValue(System.Object,System.String,System.String)">
+            <summary>
+            Retrieves property value of main view referenced model.
+            </summary>
+            <param name="inventorApp">Connect to the hosting instance of the VDS dialog.</param>
+            <param name="viewModelFullName">Full name of the view model.</param>
+            <param name="propertyName">Display name of the property.</param>
+            <returns>The property value, or null if not found.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.InvHelpers.GetMainViewModelPath(System.Object)">
+            <summary>
+            Gets the 3D model (ipt/iam/ipn) linked to the main view of the current drawing or presentation.
+            </summary>
+            <param name="inventorApp">Running host (instance of Inventor) of calling VDS Dialog.</param>
+            <returns>Full filename (path and filename including extension) of the referenced model, or null if not found.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.InvHelpers.RemoveOrphanedSheets(System.Object)">
+            <summary>
+            Deletes orphaned drawing sheets. Sheet format consuming workflows likely cause an unused Sheet1.
+            </summary>
+            <param name="inventorApp">Inventor Application.</param>
+            <returns>False on unhandled errors, true otherwise.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.InvHelpers.GetInventorApplication">
+            <summary>
+            Gets the running Inventor application instance.
+            </summary>
+            <returns>Inventor application instance, or null if not found.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.InvHelpers.GetActiveDocFullFileName(System.Object)">
+            <summary>
+            Gets the full filename of the active Inventor document.
+            </summary>
+            <param name="inventorApp">Inventor Application.</param>
+            <returns>Full filename, or null if no active document.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.InvHelpers.PlaceComponent(System.Object,System.String)">
+            <summary>
+            Places a component in the active Inventor assembly document.
+            Deprecated: VDS includes 'Insert to CAD' as a default.
+            </summary>
+            <param name="inventorApp">Inventor Application.</param>
+            <param name="componentFullFileName">Full filename of the component to place.</param>
+        </member>
+        <member name="M:VdsSampleUtilities.InvHelpers.IsFDUActive(System.Object)">
+            <summary>
+            Validates whether the Factory Design Utility AddIn is active.
+            </summary>
+            <param name="inventorApp">Inventor Application.</param>
+            <returns>True if FDU is active, false otherwise.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.InvHelpers.GetFdsKeys(System.Object,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Returns FDU key/value pairs to identify Factory Layout or Factory Asset files.
+            </summary>
+            <param name="inventorApp">Inventor Application.</param>
+            <param name="fdsKeys">Empty dictionary to be populated.</param>
+            <returns>Dictionary containing FDS keys and values.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.InvHelpers.GetFdsAcadProps(System.Object,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Returns custom iProperty set for AutoCAD files handled by Inventor FDU.
+            </summary>
+            <param name="inventorApp">Inventor Application.</param>
+            <param name="fdsKeys">Empty dictionary to be populated.</param>
+            <returns>Dictionary containing FDS AutoCAD properties.</returns>
+        </member>
+        <member name="T:VdsSampleUtilities.AcadHelpers">
+            <summary>
+            Provides helper methods for interacting with hosting AutoCAD session.
+            </summary>
+        </member>
+        <member name="M:VdsSampleUtilities.AcadHelpers.ConnectAcad">
+            <summary>
+            Gets the AutoCAD session hosting.
+            Deprecated as VDS >2017 dialogs share the hosting application object.
+            </summary>
+            <returns>True if successful, false otherwise.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.AcadHelpers.IsFdsDrawing(System.Object)">
+            <summary>
+            Checks for FDS blocks in AutoCAD drawings.
+            </summary>
+            <param name="acadApp">AutoCAD Application.</param>
+            <returns>True if block names containing "FDS" are found.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.AcadHelpers.GoToAcad(System.Object)">
+            <summary>
+            Switches to the running AutoCAD application window.
+            </summary>
+            <param name="acadApp">AutoCAD Application.</param>
+        </member>
+    </members>
+</doc>
