@@ -558,13 +558,13 @@ namespace VdsSampleUtilities
         /// </summary>
         /// <param name="svc"></param>
         /// <param name="FldIds"></param>
-        /// <param name="m_PropArray"></param>
+        /// <param name="propArray"></param>
         /// <returns></returns>
-        public Boolean UpdateFolderProp2(WebServiceManager svc, long[] FldIds, PropInstParamArray[] m_PropArray)
+        public Boolean UpdateFolderProp2(WebServiceManager svc, long[] FldIds, PropInstParamArray[] propArray)
         {
             try
             {
-                svc.DocumentServiceExtensions.UpdateFolderProperties(FldIds, m_PropArray);
+                svc.DocumentServiceExtensions.UpdateFolderProperties(FldIds, propArray);
                 return true;
             }
             catch
@@ -1519,6 +1519,8 @@ namespace VdsSampleUtilities
         private Inventor.Document? _document;
         private DrawingDocument? _drawingDoc;
         private PresentationDocument? _presentationDoc;
+        private AssemblyDocument? _assemblyDoc;
+        private PartDocument? _partDoc;
         private string? _modelPath;
         private CommandManager? _cmdManager;
 
@@ -1545,6 +1547,12 @@ namespace VdsSampleUtilities
             try
             {
                 _inventorApp = (Inventor.Application)inventorApp;
+
+                if (_inventorApp == null)
+                {
+                    return null;
+                }
+
                 _document = _inventorApp.Documents.Open(viewModelFullName, false);
                 
                 foreach (PropertySet propSet in _document.PropertySets)
@@ -1567,6 +1575,37 @@ namespace VdsSampleUtilities
         }
 
         /// <summary>
+        /// Retrieve property value of the given Inventor file.
+        /// </summary>
+        /// <param name="inventorApp">Connect to the hosting instance of the VDS dialog $Application</param>
+        /// <param name="fullFileName"></param>
+        /// <param name="propertyName">Display Name</param>
+        /// <returns></returns>
+        public object? GetInventorPropertyValue(object inventorApp, String fullFileName, String propertyName)
+        {
+            try
+            {
+                _inventorApp = (Inventor.Application)inventorApp;
+                _document = _inventorApp.Documents.Open(fullFileName, false);
+                foreach (Inventor.PropertySet m_PropSet in _document.PropertySets)
+                {
+                    foreach (Inventor.Property m_Prop in m_PropSet)
+                    {
+                        if (m_Prop.Name == propertyName)
+                        {
+                            return m_Prop.Value;
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Gets the 3D model (ipt/iam/ipn) linked to the main view of the current drawing or presentation.
         /// </summary>
         /// <param name="inventorApp">Running host (instance of Inventor) of calling VDS Dialog.</param>
@@ -1576,6 +1615,11 @@ namespace VdsSampleUtilities
             try
             {
                 _inventorApp = (Inventor.Application)inventorApp;
+
+                if (_inventorApp == null)
+                {
+                    return null;
+                }
 
                 if (_inventorApp.ActiveDocumentType == DocumentTypeEnum.kDrawingDocumentObject)
                 {
@@ -1595,8 +1639,48 @@ namespace VdsSampleUtilities
             return null;
         }
 
+        /// <summary>
+        /// Gets the 3D model file path of the first Shrinkwrap Feature's referenced file.
+        /// </summary>
+        /// <param name="inventorApp">Running host (instance of Inventor) of calling VDS Dialog.</param>
+        /// <returns>Returns the fullfilename (path\filename.ext) of the referenced model as string.</returns>
+        public String? GetShrinkWrapParentFullFileName(object inventorApp)
+        {
+            try
+            {
+                _inventorApp = (Inventor.Application)inventorApp;
+
+                if (_inventorApp == null)
+                {
+                    return null;
+                }
+
+                if (_inventorApp.ActiveDocumentType == DocumentTypeEnum.kPartDocumentObject)
+                {
+                    _partDoc = (PartDocument)_inventorApp.ActiveDocument;
+                    PartComponentDefinition componentDefinition = _partDoc.ComponentDefinition;
+                    ShrinkwrapComponent shrinkwrapComponent = componentDefinition.ReferenceComponents.ShrinkwrapComponents[1];
+                    if ((shrinkwrapComponent?.ReferencedFile != null))
+                    {
+                        _modelPath = shrinkwrapComponent.ReferencedFile.FullFileName;
+                        return _modelPath;
+                    }
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         private string? GetDrawingModelPath()
         {
+            if (_inventorApp == null)
+            {
+                return null;
+            }
+
             _drawingDoc = (DrawingDocument)_inventorApp.ActiveDocument;
             var sheet = _drawingDoc.ActiveSheet;
             
@@ -1614,6 +1698,11 @@ namespace VdsSampleUtilities
 
         private string? GetPresentationModelPath()
         {
+            if (_inventorApp == null)
+            {
+                return null;
+            }
+
             _presentationDoc = (PresentationDocument)_inventorApp.ActiveDocument;
             
             if (_presentationDoc.ReferencedDocuments.Count >= 1)
@@ -1639,7 +1728,7 @@ namespace VdsSampleUtilities
             {
                 _inventorApp = (Inventor.Application)inventorApp;
 
-                if (_inventorApp.ActiveDocumentType != DocumentTypeEnum.kDrawingDocumentObject)
+                if (_inventorApp == null || _inventorApp.ActiveDocumentType != DocumentTypeEnum.kDrawingDocumentObject)
                 {
                     return false;
                 }
@@ -1689,7 +1778,7 @@ namespace VdsSampleUtilities
         public string? GetActiveDocFullFileName(object inventorApp)
         {
             _inventorApp = (Inventor.Application)inventorApp;
-            return _inventorApp.ActiveDocument?.FullFileName;
+            return _inventorApp?.ActiveDocument?.FullFileName;
         }
 
         /// <summary>
@@ -1702,8 +1791,8 @@ namespace VdsSampleUtilities
         public void PlaceComponent(object inventorApp, string componentFullFileName)
         {
             _inventorApp = (Inventor.Application)inventorApp;
-            
-            if (_inventorApp.ActiveDocumentType != DocumentTypeEnum.kAssemblyDocumentObject)
+
+            if (_inventorApp == null || _inventorApp.ActiveDocumentType != DocumentTypeEnum.kAssemblyDocumentObject)
             {
                 return;
             }
@@ -1740,6 +1829,12 @@ namespace VdsSampleUtilities
             try
             {
                 _inventorApp = (Inventor.Application)inventorApp;
+
+                if (_inventorApp == null)
+                {
+                    return false;
+                }
+
                 var fduAddIn = _inventorApp.ApplicationAddIns.get_ItemById(FduAddInId);
                 return fduAddIn?.Activated ?? false;
             }
@@ -1761,8 +1856,14 @@ namespace VdsSampleUtilities
             try
             {
                 _inventorApp = (Inventor.Application)inventorApp;
+
+                if (_inventorApp == null)
+                {
+                    return fdsKeys;
+                }
+
                 _document = _inventorApp.ActiveDocument;
-                
+
                 if (_document == null)
                 {
                     return fdsKeys;
@@ -1828,9 +1929,15 @@ namespace VdsSampleUtilities
             try
             {
                 _inventorApp = (Inventor.Application)inventorApp;
+                
+                if (_inventorApp == null)
+                {
+                    return fdsKeys;
+                }
+
                 _document = _inventorApp.ActiveDocument;
 
-                if (!_document.DocumentInterests.HasInterest(FdsLayoutInterest))
+                if (_document == null || !_document.DocumentInterests.HasInterest(FdsLayoutInterest))
                 {
                     return fdsKeys;
                 }
@@ -1875,7 +1982,10 @@ namespace VdsSampleUtilities
                 if (dwgSource != null)
                 {
                     dwgSource.Close(true);
-                    _inventorApp.DrawingOptions.DefaultNonInventorDWGFileOpenBehavior = userOpenOpt;
+                    if (_inventorApp != null)
+                    {
+                        _inventorApp.DrawingOptions.DefaultNonInventorDWGFileOpenBehavior = userOpenOpt;
+                    }
                 }
             }
 
@@ -1889,6 +1999,11 @@ namespace VdsSampleUtilities
         {
             try
             {
+                if (_inventorApp == null)
+                {
+                    return null;
+                }
+
                 var sourceFullFileName = System.IO.Path.Combine(fdsPath, fdsKeys["DwgFileName"]);
                 userOpenOpt = _inventorApp.DrawingOptions.DefaultNonInventorDWGFileOpenBehavior;
                 _inventorApp.DrawingOptions.DefaultNonInventorDWGFileOpenBehavior = 

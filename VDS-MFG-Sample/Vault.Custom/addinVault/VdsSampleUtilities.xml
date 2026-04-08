@@ -435,7 +435,7 @@
             </summary>
             <param name="svc"></param>
             <param name="FldIds"></param>
-            <param name="m_PropArray"></param>
+            <param name="propArray"></param>
             <returns></returns>
         </member>
         <member name="M:VdsSampleUtilities.VltHelpers.mGetLinkedChildren1(Autodesk.DataManagement.Client.Framework.Vault.Currency.Connections.Connection,System.Int64,System.String,System.String)">
@@ -572,12 +572,28 @@
             <param name="propertyName">Display name of the property.</param>
             <returns>The property value, or null if not found.</returns>
         </member>
+        <member name="M:VdsSampleUtilities.InvHelpers.GetInventorPropertyValue(System.Object,System.String,System.String)">
+            <summary>
+            Retrieve property value of the given Inventor file.
+            </summary>
+            <param name="inventorApp">Connect to the hosting instance of the VDS dialog $Application</param>
+            <param name="fullFileName"></param>
+            <param name="propertyName">Display Name</param>
+            <returns></returns>
+        </member>
         <member name="M:VdsSampleUtilities.InvHelpers.GetMainViewModelPath(System.Object)">
             <summary>
             Gets the 3D model (ipt/iam/ipn) linked to the main view of the current drawing or presentation.
             </summary>
             <param name="inventorApp">Running host (instance of Inventor) of calling VDS Dialog.</param>
             <returns>Full filename (path and filename including extension) of the referenced model, or null if not found.</returns>
+        </member>
+        <member name="M:VdsSampleUtilities.InvHelpers.GetShrinkWrapParentFullFileName(System.Object)">
+            <summary>
+            Gets the 3D model file path of the first Shrinkwrap Feature's referenced file.
+            </summary>
+            <param name="inventorApp">Running host (instance of Inventor) of calling VDS Dialog.</param>
+            <returns>Returns the fullfilename (path\filename.ext) of the referenced model as string.</returns>
         </member>
         <member name="M:VdsSampleUtilities.InvHelpers.RemoveOrphanedSheets(System.Object)">
             <summary>

@@ -96,7 +96,7 @@ function InitializeWindow {
 				$dsWindow.FindName("chkBxIsInvDocuFileType").IsChecked = $true
 
 				#support empty (no model view) documentation (DWG, IDW, IPN),  or a sketched 2D drawing (DWG, IDW)
-				$_ModelFullFileName = $_mInvHelpers.m_GetMainViewModelPath($Application)
+				$_ModelFullFileName = $_mInvHelpers.GetMainViewModelPath($Application)
 				#model documentation; note - during model copy/replace incl. drawing $_ModelFullFileName is null => check number of referenced files instead to differentiate from sketch only drawings.				
 				If ($global:mIsInvDocumentationFile -eq $true -and $Prop["_GenerateFileNumber4SpecialFiles"].Value -eq $false -and $Document.ReferencedFiles.Count -gt 0) {
 					#$dsWindow.FindName("GroupFolder").Visibility = "Collapsed"
@@ -146,8 +146,8 @@ function InitializeWindow {
 				#region FDU Support --------------------------------------------------------------------------
 				
 				# Read FDS related internal meta data; required to manage particular workflows
-				If ($_mInvHelpers.m_FDUActive($Application) -ne $false) {
-					$_mFdsKeys = $_mInvHelpers.m_GetFdsKeys($Application, @{})
+				If ($_mInvHelpers.IsFDUActive($Application) -ne $false) {
+					$_mFdsKeys = $_mInvHelpers.GetFdsKeys($Application, @{})
 
 					# some FDS workflows require VDS cancellation; add the conditions to the event handler _Loaded below
 					$dsWindow.add_Loaded({
@@ -209,9 +209,9 @@ function InitializeWindow {
 				if ($Prop["_CopyMode"].Value -eq $false) {	
 					if (($Prop["_FileExt"].Value -eq ".IDW") -or ($Prop["_FileExt"].Value -eq ".DWG" )) {
 						if ($_ModelFullFileName -ne $null) {
-							$Prop["Title"].Value = $_mInvHelpers.m_GetMainViewModelPropValue($Application, $_ModelFullFileName, "Title")
-							$Prop["Description"].Value = $_mInvHelpers.m_GetMainViewModelPropValue($Application, $_ModelFullFileName, "Description")
-							$_ModelPartNumber = $_mInvHelpers.m_GetMainViewModelPropValue($Application, $_ModelFullFileName, "Part Number")
+							$Prop["Title"].Value = $_mInvHelpers.GetMainViewModelPropValue($Application, $_ModelFullFileName, "Title")
+							$Prop["Description"].Value = $_mInvHelpers.GetMainViewModelPropValue($Application, $_ModelFullFileName, "Description")
+							$_ModelPartNumber = $_mInvHelpers.GetMainViewModelPropValue($Application, $_ModelFullFileName, "Part Number")
 
 							if ($_ModelPartNumber -ne $null) {
 								# must not write empty part numbers 
@@ -223,14 +223,14 @@ function InitializeWindow {
 					if ($Prop["_FileExt"].Value -eq ".IPN") {
 						
 						if ($_ModelFullFileName -ne $null) {
-							$Prop["Title"].Value = $_mInvHelpers.m_GetMainViewModelPropValue($Application, $_ModelFullFileName, "Title")
-							$Prop["Description"].Value = $_mInvHelpers.m_GetMainViewModelPropValue($Application, $_ModelFullFileName, "Description")
-							$Prop["Part Number"].Value = $_mInvHelpers.m_GetMainViewModelPropValue($Application, $_ModelFullFileName, "Part Number")
-							$Prop["Stock Number"].Value = $_mInvHelpers.m_GetMainViewModelPropValue($Application, $_ModelFullFileName, "Stock Number")
+							$Prop["Title"].Value = $_mInvHelpers.GetMainViewModelPropValue($Application, $_ModelFullFileName, "Title")
+							$Prop["Description"].Value = $_mInvHelpers.GetMainViewModelPropValue($Application, $_ModelFullFileName, "Description")
+							$Prop["Part Number"].Value = $_mInvHelpers.GetMainViewModelPropValue($Application, $_ModelFullFileName, "Part Number")
+							$Prop["Stock Number"].Value = $_mInvHelpers.GetMainViewModelPropValue($Application, $_ModelFullFileName, "Stock Number")
 							# for custom properties there is always a risk that any does not exist
 							try {
 								$_iPropSpearWearPart = $mPropTrans["SPAREPART"]
-								$_t1 = $_mInvHelpers.m_GetMainViewModelPropValue($Application, $_ModelFullFileName, $_iPropSpearWearPart)
+								$_t1 = $_mInvHelpers.GetMainViewModelPropValue($Application, $_ModelFullFileName, $_iPropSpearWearPart)
 								if ($_t1 -ne "") {
 									$Prop[$_iPropSpearWearPart].Value = $_t1
 								}
@@ -243,11 +243,11 @@ function InitializeWindow {
 					}
 
 					if ($Prop["_FileExt"].Value -eq ".IPT" -and $mShrnkWrp -eq $true) {
-						$_ModelFullFileName = $_mInvHelpers.m_GetShrinkWrapParentFullFileName($Application)
+						$_ModelFullFileName = $_mInvHelpers.GetShrinkWrapParentFullFileName($Application)
 						if ($null -ne $_ModelFullFileName) {
-							$Prop["Title"].Value = $_mInvHelpers.m_GetInventorPropertyValue($Application, $_ModelFullFileName, "Title")
-							$Prop["Description"].Value = $_mInvHelpers.m_GetInventorPropertyValue($Application, $_ModelFullFileName, "Description")
-							$Prop["Part Number"].Value = $_mInvHelpers.m_GetInventorPropertyValue($Application, $_ModelFullFileName, "Part Number")
+							$Prop["Title"].Value = $_mInvHelpers.GetInventorPropertyValue($Application, $_ModelFullFileName, "Title")
+							$Prop["Description"].Value = $_mInvHelpers.GetInventorPropertyValue($Application, $_ModelFullFileName, "Description")
+							$Prop["Part Number"].Value = $_mInvHelpers.GetInventorPropertyValue($Application, $_ModelFullFileName, "Part Number")
 						}
 					}	
 
@@ -742,7 +742,7 @@ function OnPostCloseDialog {
 					if (-not $_mInvHelpers) {
 						$_mInvHelpers = New-Object VdsSampleUtilities.InvHelpers
 					}
-					$result = $_mInvHelpers.m_RemoveOrphanedSheets($Application)
+					$result = $_mInvHelpers.RemoveOrphanedSheets($Application)
 				}
 			}
 		}
