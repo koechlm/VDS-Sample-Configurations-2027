@@ -4228,19 +4228,43 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E0B5651FADFAA4640CAF974AD199C662"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DC89F81C997D345B5F364E9B7D985588"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_C42AE8127593BDE6296F6AA5259A96F9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_046F3934691D5245C11EED502A0A265E"
+        "OwnerKey" = "8:_B9C5308549D7D4AB19CA90936D4A4EAD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E0B5651FADFAA4640CAF974AD199C662"
+        "OwnerKey" = "8:_9DF3D91420839C328B3F969E5EFCDD49"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_9841B9197EE81C36D18CDD576EC5BA25"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8F802E2AE13286C059B54BCD0EB819DB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -4258,37 +4282,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B9C5308549D7D4AB19CA90936D4A4EAD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DC89F81C997D345B5F364E9B7D985588"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_14DF76EA27490135454EAE4B276E6A98"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9DF3D91420839C328B3F969E5EFCDD49"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8F802E2AE13286C059B54BCD0EB819DB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9841B9197EE81C36D18CDD576EC5BA25"
+        "OwnerKey" = "8:_046F3934691D5245C11EED502A0A265E"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -18061,7 +18061,7 @@
         {
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_1755438E43D94EADA6A14F56708FA106"
             {
-            "DefaultLocation" = "8:C:\\ProgramData\\Autodesk\\Vault 2026\\Extensions\\DataStandard"
+            "DefaultLocation" = "8:C:\\ProgramData\\Autodesk\\Vault 2027\\Extensions\\DataStandard"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -18626,15 +18626,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Autodesk Vault | VDS-PDMC-Sample Configuration 2027"
-        "ProductCode" = "8:{C366DDFA-A63B-4B83-AEF7-7B36AA89EBA2}"
-        "PackageCode" = "8:{91CEE641-1830-49EB-9C6E-194A03B70DD5}"
+        "ProductCode" = "8:{9F30A48F-FE36-4606-9C94-01AA39FB7FC9}"
+        "PackageCode" = "8:{B9E101F1-A861-4669-92E2-84A17EA1E843}"
         "UpgradeCode" = "8:{D3B536B0-747A-4D24-A4BD-2D981EE88792}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:32.0.00"
+        "ProductVersion" = "8:32.0.01"
         "Manufacturer" = "8:Autodesk, Technical Sales CE"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/koechlm/VDs-Sample-Configurations-2027"

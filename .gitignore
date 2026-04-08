@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/ReleasePackages/Installer/VDS-MFG-Installer.7z
+/ReleasePackages/Installer/VDS-PDMC-Installer.7z
+/ReleasePackages/Installer/VDS-MFG-Installer.msi
+/ReleasePackages/Installer/VDS-PDMC-Installer.msi
