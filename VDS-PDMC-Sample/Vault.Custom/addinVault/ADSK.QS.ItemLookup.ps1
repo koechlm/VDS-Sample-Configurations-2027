@@ -559,20 +559,18 @@ function mClearItemView()
 
 
 
-#Add-Type @'
-public class mFileItemTabAssocFile
+class mFileItemTabAssocFile
 {
-	public string link;
-	public string key;
-	public string componenttype;
-	public string filename;
-	public string version;
-	public string title;
-	public string revision;
-	public string description;
-	public string partnumber;
+	[string] $link;
+	[string] $key;
+	[string] $componenttype;
+	[string] $filename;
+	[string] $version;
+	[string] $title;
+	[string] $revision;
+	[string] $description;
+	[string] $partnumber;
 }
-#'@
 
 function mFileItemTabGetAssocFiles($itemids, $iconLocation)
 {
