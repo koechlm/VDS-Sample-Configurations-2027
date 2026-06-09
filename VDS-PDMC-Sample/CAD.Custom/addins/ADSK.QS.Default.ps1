@@ -335,7 +335,7 @@ function InitializeWindow {
 					}
 
 					$_mAcadHelpers = New-Object VdsSampleUtilities.AcadHelpers
-					$_FdsBlocksInDrawing = $_mAcadHelpers.mFdsDrawing($Application)
+					$_FdsBlocksInDrawing = $_mAcadHelpers.IsFdsDrawing($Application)
 					If ($_FdsUsrData.Get_Item("FACT_FactoryDocument") -and $_FdsBlocksInDrawing ) {
 						#try to activate category "Factory Layout"
 						$Prop["_Category"].Value = "Factory Layout"
