@@ -1467,6 +1467,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_58962CDB4A354C8587308BD96C747FA1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_59D89C53981E4A899BF92A80127BD306"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -9193,6 +9199,26 @@
             "Folder" = "8:_264EFDE7360D4756AA5553DCFCBB89A5"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_58962CDB4A354C8587308BD96C747FA1"
+            {
+            "SourcePath" = "8:..\\VDS-PDMC-Sample\\dataStandard.InvAddIn.dll.config"
+            "TargetName" = "8:dataStandard.InvAddIn.dll.config"
+            "Tag" = "8:"
+            "Folder" = "8:_D431661B2745450BADDAC0DB1361EC4A"
+            "Condition" = "8:"
+            "Transitive" = "11:TRUE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
             "Hidden" = "11:FALSE"
@@ -18595,6 +18621,18 @@
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:ProgramMenuFolder"
+                "Folders"
+                {
+                }
+            }
+            "{994432C3-9487-495D-8656-3E829A8DBDDE}:_D431661B2745450BADDAC0DB1361EC4A"
+            {
+            "DefaultLocation" = "8:C:\\ProgramData\\Autodesk\\ApplicationPlugIns\\VDSIBundle2027\\Contents"
+            "Name" = "8:VDSI2027"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:NEWPROPERTY1"
                 "Folders"
                 {
                 }
