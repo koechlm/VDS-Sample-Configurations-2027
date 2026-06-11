@@ -756,7 +756,10 @@ function OnTabContextChanged {
 		$item = $items[0]
 		$itemids = @($item.Id)
 		$fileAssoc = $vault.ItemService.GetItemFileAssociationsByItemIds($itemids, "Primary")
-		$file = $vault.DocumentService.GetFileById($fileAssoc[0].CldFileId)
+		try {
+			$file = $vault.DocumentService.GetFileById($fileAssoc[0].CldFileId)
+		}
+		catch {}
 		mInitializeClassificationTab -ParentType $null -file $file
 		return
 	}
