@@ -610,13 +610,19 @@ function OnTabContextChanged {
 			}
 
 			if ($mPropNameValues["HasModelState"] -eq $true -and $mPropNameValues["IsTrueModelState"] -eq $false) {
-				$_MsArray += $_VltHelpers.GetModelStates($vaultConnection, $file.id)
+				$mModelStates = $_VltHelpers.GetModelStates($vaultConnection, $file.id)
+				if ($mModelStates.Count -gt 0) {
+					$_MsArray += $mModelStates
+				}
 			}
 		}
 
 		# read configuration names for sldasm files
 		if ($file.Name -match "\.sldasm$" ) {
-			$_MsArray += $_VltHelpers.GetModelStates($vaultConnection, $file.id)
+			$mModelStates = $_VltHelpers.GetModelStates($vaultConnection, $file.id)
+			if ($mModelStates.Count -gt 0) {
+				$_MsArray += $mModelStates
+			}
 		}
 
 		# update the UI with model states if there are any; otherwise, just read the primary BOM
