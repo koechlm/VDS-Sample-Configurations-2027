@@ -196,10 +196,10 @@ function mGetUIStrings {
 	[xml]$mUIStrFile = get-content ("C:\ProgramData\Autodesk\Vault 2027\Extensions\DataStandard\" + $mVdsUi + "\UIStrings.xml")
 	$UIString = @{}
 	$xmlUIStrs = $mUIStrFile.SelectNodes("/UIStrings/UIString")
-	Foreach ($xmlAttr in $xmlUIStrs) {
-		$mKey = $xmlAttr.ID
-		$mValue = $xmlAttr.InnerXML
+	Foreach ($xmlAttr in $xmlUIStrs) {		
 		try{
+			$mKey = $xmlAttr.ID
+			$mValue = $xmlAttr.InnerXML
 			$UIString.Add($mKey, $mValue)
 		}
 		catch{

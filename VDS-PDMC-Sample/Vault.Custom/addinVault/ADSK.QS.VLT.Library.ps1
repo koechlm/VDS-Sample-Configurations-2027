@@ -270,9 +270,9 @@ function mGetUIStrings {
 	$UIString = @{}
 	$xmlUIStrs = $mUIStrFile.SelectNodes("/UIStrings/UIString")
 	Foreach ($xmlAttr in $xmlUIStrs) {
-		$mKey = $xmlAttr.ID
-		$mValue = $xmlAttr.InnerXML
-		try {
+		try{
+			$mKey = $xmlAttr.ID
+			$mValue = $xmlAttr.InnerXML
 			$UIString.Add($mKey, $mValue)
 		}
 		catch {
