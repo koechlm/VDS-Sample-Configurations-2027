@@ -722,9 +722,10 @@
                 </Grid>
             </GroupBox>
         </Grid>
-        <Expander x:Name="expItemMasterSearch" Grid.Column="3" Header="" Grid.RowSpan="5" ExpandDirection="Right" Visibility="Collapsed" IsExpanded="False" Margin="10,0,0,0" MaxHeight="{Binding ActualHeight, ElementName=grdMain, Mode=OneWay}">
-            <Border BorderThickness="1">
-                <Grid x:Name="grdItemSearchMain" Margin="10,0,0,0" VerticalAlignment="Top">
+        <Expander x:Name="expItemMasterSearch" Grid.Column="3" Header="" Grid.RowSpan="5" ExpandDirection="Right" Visibility="Collapsed" IsExpanded="False" Margin="10,0,0,0" VerticalAlignment="Top" />
+        <Popup PlacementTarget="{Binding ElementName=expItemMasterSearch}" Placement="Right" IsOpen="{Binding IsExpanded, ElementName=expItemMasterSearch, Mode=OneWay}" AllowsTransparency="False" PopupAnimation="None" StaysOpen="True">
+            <Border BorderThickness="1" MaxHeight="{Binding ActualHeight, ElementName=grdMain, Mode=OneWay}" Background="{Binding Background, ElementName=AutoCADWindow}">
+                <Grid x:Name="grdItemSearchMain" Margin="5,0,5,0" VerticalAlignment="Top">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
@@ -924,9 +925,10 @@
                     </Button>
                 </Grid>
             </Border>
-        </Expander>
-        <Expander x:Name="expTermSearch" Grid.Column="3" Header="" ExpandDirection="Right" IsExpanded="False" Visibility="Collapsed" Grid.RowSpan="5" MinHeight="360" VerticalAlignment="Stretch" MaxHeight="{Binding ActualHeight, ElementName=grdMain, Mode=OneWay}" MaxWidth="800">
-            <Border>
+        </Popup>
+        <Expander x:Name="expTermSearch" Grid.Column="3" Header="" ExpandDirection="Right" IsExpanded="False" Visibility="Collapsed" Grid.RowSpan="5" VerticalAlignment="Top" />
+        <Popup PlacementTarget="{Binding ElementName=expTermSearch}" Placement="Right" IsOpen="{Binding IsExpanded, ElementName=expTermSearch, Mode=OneWay}" AllowsTransparency="False" PopupAnimation="None" StaysOpen="True">
+            <Border MinHeight="360" MaxHeight="{Binding ActualHeight, ElementName=grdMain, Mode=OneWay}" MaxWidth="800" BorderThickness="1" Background="{Binding Background, ElementName=AutoCADWindow}">
                 <Grid x:Name="grdTermCatalog" Margin="5,0" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -1156,7 +1158,7 @@
                     </Grid>
                 </Grid>
             </Border>
-        </Expander>
+        </Popup>
 
     </Grid>
 </WPF:DSWindow>

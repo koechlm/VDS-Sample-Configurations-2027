@@ -51,6 +51,7 @@ function mInitializeItemSearch([STRING] $Context) {
 	#close the expander as another property is selected 
 	$dsWindow.FindName("DSDynCatPropGrid").add_GotFocus({
 			$dsWindow.FindName("expItemMasterSearch").Visibility = "Collapsed"
+			$dsWindow.FindName("expItemMasterSearch").IsExpanded = $false
 			$dsWindow.FindName("btnItemSearch").IsDefault = $false
 		})
 
@@ -383,6 +384,7 @@ function mInitializeTabItemProps() {
 	if (-not $Global:mItemTabInitialized) {	
 		$dsWindow.FindName("tabItemProperties").add_GotFocus({
 				$dsWindow.FindName("expItemMasterSearch").Visibility = "Collapsed" #it's confusing if the item search is still open as it does not apply to the Assigned Item tab
+				$dsWindow.FindName("expItemMasterSearch").IsExpanded = $false
 				if ($null -eq $dsWindow.FindName("dtgrdItemProps").ItemsSource) {
 					mGetItemByFileFromVault
 				}

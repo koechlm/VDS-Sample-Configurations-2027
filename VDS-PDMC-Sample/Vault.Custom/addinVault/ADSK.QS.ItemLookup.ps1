@@ -55,6 +55,7 @@ function mInitializeItemSearch([STRING] $Context)
 	#close the expander as another property is selected 
 	$dsWindow.FindName("DSDynamicCategoryProperties").add_GotFocus({
 		$dsWindow.FindName("expItemMasterSearch").Visibility = "Collapsed"
+		$dsWindow.FindName("expItemMasterSearch").IsExpanded = $false
 		$dsWindow.FindName("btnItemSearch").IsDefault = $false
 	})
 
@@ -393,7 +394,8 @@ public class ItemProp
 	$dsWindow.FindName("btnAssignedItemRefresh").Visibility = "Collapsed"
 	$dsWindow.FindName("txtAssignedItemStatus").Visibility = "Collapsed"
 	$dsWindow.FindName("expItemMasterSearch").Visibility = "Collapsed"
-	
+	$dsWindow.FindName("expItemMasterSearch").IsExpanded = $false
+
 	 if($Global:mItemTabInitialized -ne $true)
 	{	
 		$dsWindow.FindName("tabItemProperties").add_GotFocus({
