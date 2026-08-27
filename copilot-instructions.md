@@ -1,7 +1,7 @@
 # Autodesk Vault Data Standard Extension
 
 ## Project Overview
-This is a **deployed Vault 2026 extension** implementing the Autodesk Data Standard for PLM/PDM workflows. The codebase integrates with Autodesk Vault Professional, Inventor, and AutoCAD to enforce[...]
+This is a **deployed Vault 2027 extension** implementing the Autodesk Data Standard for PLM/PDM workflows. The codebase integrates with Autodesk Vault Professional, Inventor, and AutoCAD to enforce[...]
 
 **Key Architecture:**
 - **CAD/** - Inventor/AutoCAD client-side dialogs and PowerShell event handlers
@@ -10,7 +10,7 @@ This is a **deployed Vault 2026 extension** implementing the Autodesk Data Stand
 - **Root DLLs** - .NET assemblies providing core extensibility framework (dataStandard4Vault.dll, CreateObject.dll, etc.)
 
 ## Technology Stack
-- **Languages**: PowerShell (UI logic), C# (.NET 4.8 compiled DLLs), XAML (WPF dialogs)
+- **Languages**: PowerShell 7.6.2 (UI logic, rules script), C# (.NET 10 compiled DLLs), XAML (WPF dialogs)
 - **Framework**: Autodesk Vault API (Connectivity.Explorer.Extensibility, Connectivity.WebServices)
 - **CAD Integration**: Inventor API, AutoCAD API via .NET interop
 - **Configuration**: XML (.cfg, .xaml), JSON (CustomEntityDefinitions.json)
