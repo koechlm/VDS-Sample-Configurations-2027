@@ -10,8 +10,8 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <AssemblyName>VdsSampleUtilities</AssemblyName>
     <ApplicationIcon>Resources\Vault.Pro.ico</ApplicationIcon>
-    <AssemblyVersion>2027.32.0.0</AssemblyVersion>
-    <FileVersion>2027.32.0.0</FileVersion>
+    <AssemblyVersion>2027.32.0.1</AssemblyVersion>
+    <FileVersion>2027.32.0.1</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <Resource Include="Resources\Vault.Pro.ico">

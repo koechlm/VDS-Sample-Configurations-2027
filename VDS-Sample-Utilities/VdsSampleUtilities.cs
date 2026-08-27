@@ -880,16 +880,28 @@ namespace VdsSampleUtilities
         public Dictionary<string, long> GetModelStates(Connection conn, long fileId)
         {
             var mFileBOM = conn.WebServiceManager.DocumentService.GetBOMByFileId(fileId);
+            if (mFileBOM == null)
+            {
+                return new Dictionary<string, long>();
+            }
+
             var mFile = conn.WebServiceManager.DocumentService.GetFileById(fileId);
+            if (mFile == null)
+            {
+                return new Dictionary<string, long>();
+            }
+
+            var mCompArray = mFileBOM.CompArray ?? Array.Empty<BOMComp>();
 
             var propDefs = conn.WebServiceManager.PropertyService.GetPropertyDefinitionsByEntityClassId("FILE");
-            var providerPropDef = propDefs.FirstOrDefault(n => n.SysName == "Provider");
+            var providerPropDef = propDefs?.FirstOrDefault(n => n.SysName == "Provider");
 
             string mCadProvider = "Unknown";
             if (providerPropDef != null)
             {
-                var providerProp = conn.WebServiceManager.PropertyService.GetProperties("FILE", new long[] { fileId }, new long[] { providerPropDef.Id })[0];
-                var providerValue = providerProp.Val?.ToString();
+                var providerProps = conn.WebServiceManager.PropertyService.GetProperties("FILE", new long[] { fileId }, new long[] { providerPropDef.Id });
+                var providerProp = providerProps?.FirstOrDefault();
+                var providerValue = providerProp?.Val?.ToString();
 
                 if (providerValue?.Contains("Inventor") == true)
                 {
@@ -905,7 +917,7 @@ namespace VdsSampleUtilities
 
             if (mCadProvider == "SolidWorks")
             {
-                msArray = mFileBOM.CompArray.Where(c =>
+                msArray = mCompArray.Where(c =>
                     c.XRefId == -1 &&
                     c.UniqueId != null &&
                     c.UniqueId.Contains("@")
@@ -913,7 +925,7 @@ namespace VdsSampleUtilities
             }
             else if (mCadProvider == "Inventor")
             {
-                msArray = mFileBOM.CompArray.Where(c =>
+                msArray = mCompArray.Where(c =>
                     c.XRefId == -1 && (
                         (c.UniqueId != null && c.UniqueId.StartsWith("MS:")) ||
                         (c.Name != null && System.Text.RegularExpressions.Regex.IsMatch(c.Name, @"\[.*\]"))
@@ -921,9 +933,9 @@ namespace VdsSampleUtilities
                 ).ToList();
 
                 // Add the first component as [Primary] if it's not already in the list
-                if (mFileBOM.CompArray.Length > 0)
+                if (mCompArray.Length > 0)
                 {
-                    var firstComp = mFileBOM.CompArray[0];
+                    var firstComp = mCompArray[0];
                     if (firstComp.XRefId == -1 && !msArray.Contains(firstComp))
                     {
                         msArray.Insert(0, firstComp);
