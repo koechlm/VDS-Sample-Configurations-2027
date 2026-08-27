@@ -1,7 +1,7 @@
 # Autodesk Vault Data Standard Extension
 
 ## Project Overview
-This is a **deployed Vault 2026 extension** implementing the Autodesk Data Standard for PLM/PDM workflows. The codebase integrates with Autodesk Vault Professional, Inventor, and AutoCAD to enforce data management standards during file check-in, property editing, and custom object creation.
+This is a **deployed Vault 2027 extension** implementing the Autodesk Data Standard for PLM/PDM workflows. The codebase integrates with Autodesk Vault Professional, Inventor, and AutoCAD to enforce[...]
 
 **Key Architecture:**
 - **CAD/** - Inventor/AutoCAD client-side dialogs and PowerShell event handlers
@@ -10,7 +10,7 @@ This is a **deployed Vault 2026 extension** implementing the Autodesk Data Stand
 - **Root DLLs** - .NET assemblies providing core extensibility framework (dataStandard4Vault.dll, CreateObject.dll, etc.)
 
 ## Technology Stack
-- **Languages**: PowerShell (UI logic), C# (.NET 4.8 compiled DLLs), XAML (WPF dialogs)
+- **Languages**: PowerShell (UI logic) — tested on PowerShell 7.6.2, C# (.NET 10 compiled DLLs), XAML (WPF dialogs)
 - **Framework**: Autodesk Vault API (Connectivity.Explorer.Extensibility, Connectivity.WebServices)
 - **CAD Integration**: Inventor API, AutoCAD API via .NET interop
 - **Configuration**: XML (.cfg, .xaml), JSON (CustomEntityDefinitions.json)
@@ -154,7 +154,7 @@ Extended functions for Vault Explorer commands and dialogs:
 
 **Hierarchy & Navigation:**
 - `mGetParentFldrByCat($Category)` - Walk up folder hierarchy to find category match
-- `mGetFolderNumber($FileNumber, $nChar)` - Generate folder paths for sequential numbering (e.g., "$/xDMS/0/000/")
+- `mGetFolderNumber($FileNumber, $nChar)` - Generate folder paths for sequential numbering (e.g., "$/$/xDMS/0/000/")
 
 **Thin Client Link Generation:**
 - `Adsk.CreateTcFileLink($FileFullVaultPath)` - Generate web link to file
@@ -188,5 +188,6 @@ if (Adsk.CheckCfgAdminPermission()) {
 ## External Dependencies
 - `log4net.dll` - Logging framework
 - `Newtonsoft.Json.dll` - JSON parsing
-- `System.Management.Automation.dll` - PowerShell host
-- Autodesk Vault SDK assemblies (31.0.0.0 = Vault 2026)
+- `System.Management.Automation.dll` - PowerShell host (PowerShell 7.6.2)
+- Autodesk Vault SDK assemblies (32.0.0.0 = Vault 2027)
+
