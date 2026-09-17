@@ -88,7 +88,7 @@ function mGetNewFileParentFldrByCat ([string] $Category) {
 		}
 		#merge the local path and relative target path of new file in vault
 		$mPath = $Prop["_FilePath"].Value.Replace($mWFCAD, "")
-		$mPath = $mWfVault.FullName + "/" + $mPath
+		$mPath = $mWfVault.FullName.TrimEnd('\', '/') + '/' + $mPath.TrimStart('\', '/')
 		$mPath = $mPath.Replace(".\", "")
 		$mPath = $mPath.Replace("\", "/")
 		$mPath = $mPath.Replace("//", "/")
