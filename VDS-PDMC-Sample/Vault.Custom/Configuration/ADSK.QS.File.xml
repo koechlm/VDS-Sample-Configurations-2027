@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <DocTypeData xmlns="">
   <DocTypeInfo>
+    <DocName>SolidWorks</DocName>
+    <Path>$/Templates/SolidWorks</Path>
+  </DocTypeInfo>
+  <DocTypeInfo>
     <DocName>Inventor</DocName>
     <Path>$/Templates/Inventor</Path>
   </DocTypeInfo>
@@ -9,12 +13,12 @@
     <Path>$/Templates/AutoCAD</Path>
   </DocTypeInfo>
   <DocTypeInfo>
-    <DocName>iLogic Rule</DocName>
-    <Path>$/Templates/Inventor iLogic</Path>
-  </DocTypeInfo>
-  <DocTypeInfo>
     <DocName>Office</DocName>
     <Path>$/Templates/Office</Path>
+  </DocTypeInfo>
+  <DocTypeInfo>
+    <DocName>iLogic Rule</DocName>
+    <Path>$/Templates/Inventor iLogic</Path>
   </DocTypeInfo>
   <DocTypeInfo>
     <DocName>Electrical Drawing</DocName>

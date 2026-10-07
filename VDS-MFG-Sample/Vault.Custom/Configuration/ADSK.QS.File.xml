@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <DocTypeData xmlns="">
   <DocTypeInfo>
+    <DocName>SolidWorks</DocName>
+    <Path>$/Templates/SolidWorks</Path>
+  </DocTypeInfo>
+  <DocTypeInfo>
     <DocName>Inventor</DocName>
     <Path>$/Templates/Inventor</Path>
   </DocTypeInfo>
